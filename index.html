@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky & Diya Profile</title>
+    <link rel="icon" type="image/jpeg" href="dd.jpg">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ffecd2, #fcb69f);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .profile-container {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            width: 90%;
+            max-width: 800px;
+            border: 5px solid #ff6f61;
+            margin-bottom: 20px;
+        }
+        .profile {
+            flex: 1;
+            padding: 30px;
+            text-align: center;
+            background-color: #fff5e6;
+            position: relative;
+        }
+        .profile:nth-child(2) {
+            border-left: 5px solid #ff6f61;
+        }
+        .profile img {
+            border-radius: 50%;
+            max-width: 100%;
+            height: auto;
+            border: 5px solid #ff6f61;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-out;
+        }
+        .profile:hover img {
+            transform: scale(1.1);
+        }
+        .profile h2 {
+            margin: 15px 0;
+            font-size: 30px;
+            color: #d94f5c;
+        }
+        .profile p {
+            color: #d94f5c;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .social-links a {
+            margin: 0 15px;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+        .social-links a:hover {
+            transform: scale(1.1);
+        }
+        .social-links img {
+            width: 40px;
+            height: 40px;
+        }
+        .romantic-graphics {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .romantic-graphics::before,
+        .romantic-graphics::after {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: rgba(255, 0, 0, 0.1);
+        }
+        .romantic-graphics::before {
+            top: 10%;
+            left: 10%;
+        }
+        .romantic-graphics::after {
+            bottom: 10%;
+            right: 10%;
+        }
+        @media (max-width: 768px) {
+            .profile {
+                padding: 20px;
+            }
+            .profile img {
+                width: 150px;
+                height: 150px;
+            }
+            .profile h2 {
+                font-size: 24px;
+            }
+            .profile p {
+                font-size: 16px;
+            }
+            .social-links img {
+                width: 30px;
+                height: 30px;
+            }
+            .romantic-graphics::before,
+            .romantic-graphics::after {
+                display: none;
+            }
+        }
+        footer {
+            width: 100%;
+            text-align: center;
+            padding: 10px 0;
+            background-color: #fff5e6;
+            border-top: 5px solid #ff6f61;
+        }
+        footer img {
+            max-width: 100px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+<?php
+$profiles = [
+    [
+        "name" => "Lucky",
+        "image" => "lucky.jpg",
+        "emails" => ["love@luckydiya.online", "davidk76011@gmail.com"],
+        "website" => "https://list.imdavid.in", // Added website
+        "social_links" => [
+            "Facebook" => "https://www.facebook.com/davidkhiddelstone9098?mibextid=ZbWKwL",
+            "Instagram 1" => "https://www.instagram.com/lucky_970m?igsh=czhqMG95OHkwMGg=",
+            "Instagram 2" => "https://www.instagram.com/love_lucky.diya?igsh=N2lucm5kMmt0NHV1"
+        ]
+    ],
+    [
+        "name" => "Diya",
+        "image" => "diya.jpg",
+        "emails" => ["love@luckydiya.online"],
+        "social_links" => [
+            "Facebook" => "https://www.facebook.com/profile.php?id=100094780743489&mibextid=ZbWKwL",
+            "Instagram 1" => "https://www.instagram.com/diyanath626?igsh=MW5wM25oNmtjOG10eA==",
+            "Instagram 2" => "https://www.instagram.com/love_lucky.diya?igsh=N2lucm5kMmt0NHV1"
+        ]
+    ]
+];
+?>
+
+<div class="profile-container">
+    <?php foreach ($profiles as $profile): ?>
+        <div class="profile">
+            <img src="<?= $profile['image'] ?>" alt="<?= $profile['name'] ?>'s Profile Picture">
+            <h2><?= $profile['name'] ?></h2>
+            <?php foreach ($profile['emails'] as $email): ?>
+                <p>Email: <?= $email ?></p>
+            <?php endforeach; ?>
+            <div class="social-links">
+                <?php foreach ($profile['social_links'] as $platform => $link): ?>
+                    <a href="<?= $link ?>">
+                        <img src="<?= strtolower(explode(' ', $platform)[0]) ?>_logo.png" alt="<?= $platform ?>">
+                    </a>
+                <?php endforeach; ?>
+                <?php if (isset($profile['website'])): ?> <!-- Added website link to social links -->
+                    <a href="<?= $profile['website'] ?>" target="_blank">
+                        <img src="website_logo.png" alt="Website" style="width:40px; height:40px;">
+                    </a>
+                <?php endif; ?>
+            </div>
+            <div class="romantic-graphics"></div>
+        </div>
+    <?php endforeach; ?>
+</div>
+
+<footer>
+    <img src="dd.png" alt="Website Logo">
+</footer>
+
+</body>
+</html>
