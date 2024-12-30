@@ -77,55 +77,6 @@
             width: 40px;
             height: 40px;
         }
-        .romantic-graphics {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-        .romantic-graphics::before,
-        .romantic-graphics::after {
-            content: '';
-            position: absolute;
-            display: block;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background-color: rgba(255, 0, 0, 0.1);
-        }
-        .romantic-graphics::before {
-            top: 10%;
-            left: 10%;
-        }
-        .romantic-graphics::after {
-            bottom: 10%;
-            right: 10%;
-        }
-        @media (max-width: 768px) {
-            .profile {
-                padding: 20px;
-            }
-            .profile img {
-                width: 150px;
-                height: 150px;
-            }
-            .profile h2 {
-                font-size: 24px;
-            }
-            .profile p {
-                font-size: 16px;
-            }
-            .social-links img {
-                width: 30px;
-                height: 30px;
-            }
-            .romantic-graphics::before,
-            .romantic-graphics::after {
-                display: none;
-            }
-        }
         footer {
             width: 100%;
             text-align: center;
@@ -140,61 +91,38 @@
     </style>
 </head>
 <body>
-
-<?php
-$profiles = [
-    [
-        "name" => "Lucky",
-        "image" => "lucky.jpg",
-        "emails" => ["davidk76011@gmail.com"],
-        "website" => "https://list.imdavid.in",
-        "social_links" => [
-            "Facebook" => "https://www.facebook.com/davidkhiddelstone9098?mibextid=ZbWKwL",
-            "Instagram 1" => "https://www.instagram.com/lucky_970m?igsh=czhqMG95OHkwMGg=",
-            "Instagram 2" => "https://www.instagram.com/love_lucky.diya?igsh=N2lucm5kMmt0NHV1"
-        ]
-    ],
-    [
-        "name" => "Diya",
-        "image" => "diya.jpg",
-        "emails" => [],
-        "social_links" => [
-            "Facebook" => "https://www.facebook.com/profile.php?id=100094780743489&mibextid=ZbWKwL",
-            "Instagram 1" => "https://www.instagram.com/diyanath626?igsh=MW5wM25oNmtjOG10eA==",
-            "Instagram 2" => "https://www.instagram.com/love_lucky.diya?igsh=N2lucm5kMmt0NHV1"
-        ]
-    ]
-];
-?>
-
-<div class="profile-container">
-    <?php foreach ($profiles as $profile): ?>
+    <div class="profile-container">
         <div class="profile">
-            <img src="<?= $profile['image'] ?>" alt="<?= $profile['name'] ?>'s Profile Picture">
-            <h2><?= $profile['name'] ?></h2>
-            <?php foreach ($profile['emails'] as $email): ?>
-                <p>Email: <?= $email ?></p>
-            <?php endforeach; ?>
+            <img src="lucky.jpg" alt="Lucky's Profile Picture">
+            <h2>Lucky</h2>
+            <p>Email: davidk76011@gmail.com</p>
             <div class="social-links">
-                <?php foreach ($profile['social_links'] as $platform => $link): ?>
-                    <a href="<?= $link ?>">
-                        <img src="<?= strtolower(explode(' ', $platform)[0]) ?>_logo.png" alt="<?= $platform ?>">
-                    </a>
-                <?php endforeach; ?>
-                <?php if (isset($profile['website'])): ?>
-                    <a href="<?= $profile['website'] ?>" target="_blank">
-                        <img src="website_logo.png" alt="Website" style="width:40px; height:40px;">
-                    </a>
-                <?php endif; ?>
+                <a href="https://www.facebook.com/davidkhiddelstone9098?mibextid=ZbWKwL">
+                    <img src="facebook_logo.png" alt="Facebook">
+                </a>
+                <a href="https://www.instagram.com/lucky_970m?igsh=czhqMG95OHkwMGg=">
+                    <img src="instagram_logo.png" alt="Instagram">
+                </a>
+                <a href="https://list.imdavid.in" target="_blank">
+                    <img src="website_logo.png" alt="Website">
+                </a>
             </div>
-            <div class="romantic-graphics"></div>
         </div>
-    <?php endforeach; ?>
-</div>
-
-<footer>
-    <img src="dd.png" alt="Website Logo">
-</footer>
-
+        <div class="profile">
+            <img src="diya.jpg" alt="Diya's Profile Picture">
+            <h2>Diya</h2>
+            <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=100094780743489&mibextid=ZbWKwL">
+                    <img src="facebook_logo.png" alt="Facebook">
+                </a>
+                <a href="https://www.instagram.com/diyanath626?igsh=MW5wM25oNmtjOG10eA==">
+                    <img src="instagram_logo.png" alt="Instagram">
+                </a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <img src="dd.png" alt="Website Logo">
+    </footer>
 </body>
 </html>
