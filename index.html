@@ -15,7 +15,9 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
+            padding: 10px; /* Added padding for smaller screens */
         }
+
         .profile-container {
             display: flex;
             flex-wrap: wrap;
@@ -23,60 +25,73 @@
             border-radius: 10px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             overflow: hidden;
-            width: 90%;
+            width: 100%; /* Ensure it fits mobile screens */
             max-width: 800px;
             border: 5px solid #ff6f61;
             margin-bottom: 20px;
+            flex-direction: row; /* Default horizontal layout */
         }
+
         .profile {
             flex: 1;
-            padding: 30px;
+            padding: 20px;
             text-align: center;
             background-color: #fff5e6;
             position: relative;
         }
+
         .profile:nth-child(2) {
             border-left: 5px solid #ff6f61;
         }
+
         .profile img {
             border-radius: 50%;
-            max-width: 100%;
+            max-width: 150px; /* Scales for smaller screens */
+            width: 100%;
             height: auto;
             border: 5px solid #ff6f61;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease-out;
         }
+
         .profile:hover img {
             transform: scale(1.1);
         }
+
         .profile h2 {
             margin: 15px 0;
-            font-size: 30px;
+            font-size: 24px; /* Adjusted for smaller screens */
             color: #d94f5c;
         }
+
         .profile p {
             color: #d94f5c;
-            font-size: 18px;
-            margin-bottom: 20px;
+            font-size: 16px;
+            margin-bottom: 10px;
         }
+
         .social-links {
             display: flex;
             justify-content: center;
             align-items: center;
             margin-top: 20px;
         }
+
         .social-links a {
-            margin: 0 15px;
+            margin: 0 10px; /* Reduced spacing for mobile */
             text-decoration: none;
             transition: transform 0.2s;
         }
+
         .social-links a:hover {
             transform: scale(1.1);
         }
+
         .social-links img {
-            width: 40px;
-            height: 40px;
+            width: 30px; /* Scaled down icons */
+            height: 30px;
         }
+
         footer {
             width: 100%;
             text-align: center;
@@ -84,9 +99,39 @@
             background-color: #fff5e6;
             border-top: 5px solid #ff6f61;
         }
+
         footer img {
-            max-width: 100px;
+            max-width: 80px; /* Scales footer logo */
             height: auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .profile-container {
+                flex-direction: column; /* Stacks profiles vertically */
+            }
+
+            .profile:nth-child(2) {
+                border-left: none;
+                border-top: 5px solid #ff6f61; /* Add top border for separation */
+            }
+
+            .profile {
+                padding: 15px; /* Reduced padding */
+            }
+
+            .profile h2 {
+                font-size: 20px; /* Smaller text for mobile */
+            }
+
+            .profile p {
+                font-size: 14px;
+            }
+
+            .social-links img {
+                width: 25px; /* Smaller icons for mobile */
+                height: 25px;
+            }
         }
     </style>
 </head>
@@ -103,7 +148,7 @@
                 <a href="https://www.instagram.com/lucky_970m?igsh=czhqMG95OHkwMGg=">
                     <img src="instagram_logo.png" alt="Instagram">
                 </a>
-                <a href="https://list.imdavid.in" target="_blank">
+                <a href="https://imdavid.in" target="_blank">
                     <img src="website_logo.png" alt="Website">
                 </a>
             </div>
